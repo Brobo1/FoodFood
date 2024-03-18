@@ -3,16 +3,13 @@ using FoodFood.Data;
 using FoodFood.Data.Models;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FoodFood.Controller {
 	[Route("/[controller]")]
 	[ApiController]
 	public class PaymentController : ControllerBase {
-		private readonly FoodFoodContext _context;
-namespace FoodFood.Controller
-{
-    public class PaymentController : ControllerBase
-    {
+
         private readonly FoodFoodContext _db;
 
         public PaymentController(FoodFoodContext db)
