@@ -6,7 +6,16 @@ namespace FoodFood.Data {
 	public class FoodFoodContext : DbContext {
 		public FoodFoodContext(DbContextOptions<FoodFoodContext> options) : base(options) { }
 
-		public DbSet<Favorite>         Favorite          { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.UserName)
+                .IsUnique();
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public DbSet<Favorite>         Favorite          { get; set; }
 		public DbSet<Meal>             Meal              { get; set; }
 		public DbSet<MealOrder>        MealOrder         { get; set; }
 		public DbSet<MealRestaurant>   MealResturant     { get; set; }
