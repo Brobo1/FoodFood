@@ -1,6 +1,4 @@
-﻿using FoodFood.Data.Models;
-
-namespace FoodFood.Controller;
+﻿namespace FoodFood.Data.Models;
 
 public class Order {
 	public int        Id                 { get; set; }
@@ -8,6 +6,6 @@ public class Order {
 	public DateTime   OrderDate          { get; set; }
 	public bool       IsDelivered        { get; set; }
 	public double     TotalPrice         { get; set; }
-	public ICollection<Meal_Order> Meal_Order { get; set; } = new List<Meal_Order>();
+	public ICollection<MealOrder> MealOrder { get; set; } = new List<MealOrder>();
 	public User? User { get; set; }
 }

@@ -7,7 +7,7 @@
         public int UserId { get; set; }
         public bool IsFavorite { get; set; }
         public User? User { get; set; }
-        public Restaurant_Rating? Restaurant_Rating { get; set; }
+        public RestaurantRating? RestaurantRating { get; set; }
         public Restaurant? Restaurant { get; set; }
     }
 }

@@ -11,9 +11,9 @@
         public DateTime ClosingTime { get; set; } = DateTime.Now;
         public bool IsOpen { get; set; }
         public string Image { get; set; } = string.Empty;
-        public ICollection<Meal_Restaurant> Meal_Restaurants { get; set; } = new List<Meal_Restaurant>();
+        public ICollection<MealRestaurant> MealRestaurants { get; set; } = new List<MealRestaurant>();
         public ICollection<Favorite> Favorite { get; set; } = new List<Favorite>();
-        public ICollection<Restaurant_Rating> Restaurant_Ratings { get; set; } = new List<Restaurant_Rating>();
+        public ICollection<RestaurantRating> RestaurantRatings { get; set; } = new List<RestaurantRating>();
     }
 
 }

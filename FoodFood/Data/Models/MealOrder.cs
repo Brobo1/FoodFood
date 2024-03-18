@@ -1,9 +1,6 @@
-﻿using FoodFood.Data.Models;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿namespace FoodFood.Data.Models;
 
-namespace FoodFood.Controller;
-
-public class Meal_Order {
+public class MealOrder {
 	public int Id      { get; set; }
 	public int MealId  { get; set; }
 	public int OrderId { get; set; }
