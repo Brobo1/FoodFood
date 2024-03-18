@@ -7,5 +7,6 @@
         public int RatingId { get; set; }
         public Restaurant? Restaurant { get; set; }
         public Favorite? Favorite { get; set; }
+        public Rating? Rating { get; set; }
     }
 }
