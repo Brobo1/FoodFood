@@ -18,7 +18,6 @@ namespace FoodFood.Data {
         public DbSet<Favorite>         Favorite          { get; set; }
 		public DbSet<Meal>             Meal              { get; set; }
 		public DbSet<MealOrder>        MealOrder         { get; set; }
-		public DbSet<MealRestaurant>   MealResturant     { get; set; }
 		public DbSet<Order>            Order             { get; set; }
 		public DbSet<Payment>          Payment           { get; set; }
 		public DbSet<Personalia>       Personalia        { get; set; }

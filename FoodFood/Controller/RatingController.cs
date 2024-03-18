@@ -48,10 +48,19 @@ namespace FoodFood.Controller
                 Review = rating.Review,
                 UserId = rating.UserId,
                 Stars = rating.Stars
-
             };
+
             _db.Rating.Add(newRating);
             await _db.SaveChangesAsync();
+
+            RestaurantRating restaurantRating = new RestaurantRating
+            {
+                RatingId = newRating.Id, 
+                RestaurantId = rating.RestaurantId
+            };
+            _db.RestaurantRatings.Add(restaurantRating);
+            await _db.SaveChangesAsync();
+
             return CreatedAtAction(nameof(GetRating), new { id = newRating.Id}, newRating);
         }
         [HttpPut("{id}")]

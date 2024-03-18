@@ -42,6 +42,9 @@ public class RestaurantController : ControllerBase {
 			IsOpen      = restaurant.IsOpen,
 			Image       = restaurant.Image,
 		};
+
+
+
 		_db.Restaurants.Add(newRestaurant);
 		await _db.SaveChangesAsync();
 		return CreatedAtRoute(new { id = newRestaurant.Id }, restaurant);

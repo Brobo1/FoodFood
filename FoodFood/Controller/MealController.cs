@@ -38,7 +38,8 @@ public class MealController : ControllerBase {
 			Price       = meal.Price,
 			Category    = meal.Category,
 			MealImage   = meal.MealImage,
-			Allergens   = meal.Allergens
+			Allergens   = meal.Allergens,
+			RestaurantId = meal.RestaurantId
 		};
 		_db.Meal.Add(newMeal);
 		await _db.SaveChangesAsync();
@@ -56,7 +57,8 @@ public class MealController : ControllerBase {
 		mealToUpdate.Price       = meal.Price;
 		mealToUpdate.Category    = meal.Category;
 		mealToUpdate.MealImage   = meal.MealImage;
-		mealToUpdate.Allergens   = meal.Allergens;
+		mealToUpdate.Allergens = meal.Allergens;
+		mealToUpdate.RestaurantId = meal.RestaurantId;
 		await _db.SaveChangesAsync();
 		return NoContent();
 	}
