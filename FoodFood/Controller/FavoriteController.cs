@@ -65,6 +65,20 @@ namespace FoodFood.Controller
             await _db.SaveChangesAsync();
             return NoContent();
         }
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateFavorite(int id, CreateFavorite favorite)
+        {
+            var favoriteToUpdate = await _db.Favorite.FindAsync(id);
+            if (favoriteToUpdate == null)
+            {
+                return NotFound();
+            }
+            favoriteToUpdate.UserId = favorite.UserId;
+            favoriteToUpdate.ResturantId = favorite.ResturantId;
+            favoriteToUpdate.IsFavorite = favorite.IsFavorite;
+            await _db.SaveChangesAsync();
+            return NoContent();
+        }
         
 
 
