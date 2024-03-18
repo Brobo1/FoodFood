@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FoodFood.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FoodFood.Data
 {
@@ -9,6 +10,9 @@ namespace FoodFood.Data
             
         }
 
+        public DbSet<Models.Favorite> Favorite { get; set; }
+        public DbSet<Models.Meal> Meal { get; set; }
+        public DbSet<Models.Meal_Restaurant> Meal_Resturant { get; set; }
         public DbSet<Models.Payment> Payment { get; set; }
 
 
