@@ -1,4 +1,5 @@
-﻿using FoodFood.Data;
+﻿using FoodFood.Controller.ControllerModels;
+using FoodFood.Data;
 using FoodFood.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -85,11 +86,5 @@ namespace FoodFood.Controller
             return NoContent();
         }
     }
-    public class CreateOrder
-    {
-        public DateTime OrderDate { get; set; }
-        public bool IsDelivered { get; set; }
-        public double TotalPrice { get; set; }
-
-    }
+   
 }
