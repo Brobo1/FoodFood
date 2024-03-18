@@ -6,5 +6,5 @@ public class Rating {
 	public bool   UserId { get; set; }
 	public int    Stars  { get; set; }
 	public User?  User { get; set; }
-	public ICollection<Restaurant_Rating> Restaurant_Rating { get; set; } = new List<Restaurant_Rating>();
+	public ICollection<RestaurantRating> RestaurantRating { get; set; } = new List<RestaurantRating>();
 }

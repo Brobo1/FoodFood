@@ -1,6 +1,6 @@
 ﻿namespace FoodFood.Data.Models
 {
-    public class Restaurant_Rating
+    public class RestaurantRating
     {
         public int Id { get; set; }
         public int RestaurantId { get; set; }

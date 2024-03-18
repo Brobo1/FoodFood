@@ -1,6 +1,4 @@
-﻿using FoodFood.Controller;
-
-namespace FoodFood.Data.Models
+﻿namespace FoodFood.Data.Models
 {
     public class Meal
     {
@@ -11,8 +9,8 @@ namespace FoodFood.Data.Models
         public string MealImage { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public string Allergens { get; set; } = string.Empty;
-        public ICollection<Meal_Restaurant> Meal_Restaurants { get; set; } = new List<Meal_Restaurant>();
-        public ICollection<Meal_Order> Meal_Orders { get; set; } = new List<MealOrder>();
+        public ICollection<MealRestaurant> MealRestaurants { get; set; } = new List<MealRestaurant>();
+        public ICollection<MealOrder> MealOrders { get; set; } = new List<MealOrder>();
         
     }
 }

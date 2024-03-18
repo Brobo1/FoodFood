@@ -1,6 +1,4 @@
-﻿using FoodFood.Controller;
-
-namespace FoodFood.Data.Models
+﻿namespace FoodFood.Data.Models
 {
     public class User
     {
