@@ -10,20 +10,20 @@ namespace FoodFood.Controller;
 [Route("/[controller]")]
 [ApiController]
 public class RestaurantController : ControllerBase {
-	private readonly FoodFoodContext _context;
+	private readonly FoodFoodContext _db;
 
 	public RestaurantController(FoodFoodContext context) {
-		_context = context;
+		_db = context;
 	}
 
 	[HttpGet]
 	public async Task<ActionResult> GetRestaurants() {
-		return Ok(await _context.Restaurants.ToListAsync());
+		return Ok(await _db.Restaurants.ToListAsync());
 	}
 
 	[HttpGet("{id:int}")]
 	public async Task<ActionResult> GetRestaurant(int id) {
-		var restaurant = await _context.Restaurants.FindAsync(id);
+		var restaurant = await _db.Restaurants.FindAsync(id);
 		if (restaurant == null) {
 			return NotFound();
 		}
@@ -42,14 +42,14 @@ public class RestaurantController : ControllerBase {
 			IsOpen      = restaurant.IsOpen,
 			Image       = restaurant.Image,
 		};
-		_context.Restaurants.Add(newRestaurant);
-		await _context.SaveChangesAsync();
+		_db.Restaurants.Add(newRestaurant);
+		await _db.SaveChangesAsync();
 		return CreatedAtRoute(new { id = newRestaurant.Id }, restaurant);
 	}
 
 	[HttpPut("{id:int}")]
 	public async Task<ActionResult> UpdateRestaurant(int id, CreateRestaurant restaurant) {
-		var restaurantToUpdate = await _context.Restaurants.FindAsync(id);
+		var restaurantToUpdate = await _db.Restaurants.FindAsync(id);
 		if (restaurantToUpdate == null) {
 			return NotFound();
 		}
@@ -61,19 +61,18 @@ public class RestaurantController : ControllerBase {
 		restaurantToUpdate.ClosingTime = restaurant.ClosingTime!;
 		restaurantToUpdate.IsOpen      = restaurant.IsOpen;
 		restaurantToUpdate.Image       = restaurant.Image;
-		await _context.SaveChangesAsync();
+		await _db.SaveChangesAsync();
 		return NoContent();
 	}
 
 	[HttpDelete]
 	public async Task<ActionResult> DeleteRestaurant(int id) {
-		var restaurant = await _context.Restaurants.FindAsync(id);
+		var restaurant = await _db.Restaurants.FindAsync(id);
 		if (restaurant == null) {
 			return NotFound();
 		}
-		_context.Restaurants.Remove(restaurant);
-		await _context.SaveChangesAsync();
+		_db.Restaurants.Remove(restaurant);
+		await _db.SaveChangesAsync();
 		return NoContent();
 	}
-	
 }
