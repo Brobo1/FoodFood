@@ -12,5 +12,6 @@ namespace FoodFood.Data
         public DbSet<Models.Payment> Payment { get; set; }
 
 
+
     }
 }
