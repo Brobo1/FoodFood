@@ -9,5 +9,6 @@ namespace FoodFood.Data.Models
         public string   Address   { get; set; } = string.Empty;
         public int        UserId         { get; set; }
         public User?    User      { get; set; }
+        public ICollection<Payment>? Payment { get; set; }
     }
 }
