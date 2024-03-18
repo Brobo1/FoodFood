@@ -46,7 +46,7 @@ namespace FoodFood.Controller
             Favorite newFavorite = new ()
             {
                 UserId = favorite.UserId,
-                ResturantId = favorite.ResturantId¨,
+                ResturantId = favorite.ResturantId,
                 IsFavorite = favorite.IsFavorite
             };
             _db.Favorite.Add(newFavorite);
