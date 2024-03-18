@@ -6,6 +6,6 @@ public class Order {
 	public DateTime   OrderDate          { get; set; }
 	public bool       IsDelivered        { get; set; }
 	public double     TotalPrice         { get; set; }
-	public ICollection<MealOrder> MealOrder { get; set; } = new List<MealOrder>();
+	public ICollection<MealOrder>? MealOrder { get; set; }
 	public User? User { get; set; }
 }

@@ -7,8 +7,8 @@
         public string Password { get; set; } 
         public string Salt { get; set; }
         public Personalia? Personalia { get; set; }
-        public ICollection<Favorite> Favorite { get; set; } = new List<Favorite>();
-        public ICollection<Rating> Ratings { get; set; } = new List<Rating>();
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        public ICollection<Favorite>? Favorite { get; set; }
+        public ICollection<Rating>? Ratings { get; set; }
+        public ICollection<Order>? Orders { get; set; }
     }
 }

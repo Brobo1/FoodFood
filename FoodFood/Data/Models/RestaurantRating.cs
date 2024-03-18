@@ -7,7 +7,7 @@
         public int RatingId { get; set; }
         public Restaurant? Restaurant { get; set; }
         public Rating? Rating { get; set; }
-
-        public ICollection<Favorite> Favorite { get; set; } = new List<Favorite>();
+        
+        public ICollection<Favorite>? Favorite { get; set; }
     }
 }
