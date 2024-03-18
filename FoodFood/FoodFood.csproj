@@ -15,4 +15,8 @@
       <Folder Include="Data\Models\Enum\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Controller\" />
+    </ItemGroup>
+
 </Project>
