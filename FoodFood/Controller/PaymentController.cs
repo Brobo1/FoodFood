@@ -1,9 +1,14 @@
 ﻿using FoodFood.Controller.ControllerModels;
 using FoodFood.Data;
 using FoodFood.Data.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
+using Microsoft.AspNetCore.Mvc;
+
+namespace FoodFood.Controller {
+	[Route("/[controller]")]
+	[ApiController]
+	public class PaymentController : ControllerBase {
+		private readonly FoodFoodContext _context;
 namespace FoodFood.Controller
 {
     public class PaymentController : ControllerBase
