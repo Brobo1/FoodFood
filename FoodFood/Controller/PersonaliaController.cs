@@ -30,8 +30,8 @@ namespace FoodFood.Controller
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
-            var payments = await _db.Payment.ToListAsync();
-            return Ok(payments);
+            var personalia = await _db.Personalia.ToListAsync();
+            return Ok(personalia);
         }
 
         [HttpPost]
@@ -76,7 +76,7 @@ namespace FoodFood.Controller
             }
             _db.Personalia.Remove(personaliaToDelete);
             await _db.SaveChangesAsync();
-            return Ok();
+            return NoContent();
         }
     }
 }

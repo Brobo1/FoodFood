@@ -17,7 +17,7 @@ namespace FoodFood_XuNit
         {
             // Arrange
             var options = new DbContextOptionsBuilder<FoodFoodContext>()
-                .UseInMemoryDatabase(databaseName: "FoodFood")
+                .UseInMemoryDatabase(databaseName: "GetUsers_ReturnsAListOfUsers")
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
@@ -41,7 +41,7 @@ namespace FoodFood_XuNit
         {
             // Arrange
             var options = new DbContextOptionsBuilder<FoodFoodContext>()
-                .UseInMemoryDatabase(databaseName: "FoodFood")
+                .UseInMemoryDatabase(databaseName: "GetUser_ReturnsAUser")
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
@@ -62,7 +62,7 @@ namespace FoodFood_XuNit
         {
             // Arrange
             var options = new DbContextOptionsBuilder<FoodFoodContext>()
-                .UseInMemoryDatabase(databaseName: "FoodFood")
+                .UseInMemoryDatabase(databaseName: "CreateUser_CreatesAUser")
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
@@ -88,7 +88,7 @@ namespace FoodFood_XuNit
         {
             // Arrange
             var options = new DbContextOptionsBuilder<FoodFoodContext>()
-                .UseInMemoryDatabase(databaseName: "FoodFood")
+                .UseInMemoryDatabase(databaseName: "DeleteUser_DeletesAUser")
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
@@ -109,7 +109,7 @@ namespace FoodFood_XuNit
         {
             // Arrange
             var options = new DbContextOptionsBuilder<FoodFoodContext>()
-                .UseInMemoryDatabase(databaseName: "FoodFood")
+                .UseInMemoryDatabase(databaseName: "DeleteUser_ReturnsNotFound")
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
@@ -127,7 +127,7 @@ namespace FoodFood_XuNit
 
             // Arrange
             var options = new DbContextOptionsBuilder<FoodFoodContext>()
-                .UseInMemoryDatabase(databaseName: "FoodFood")
+                .UseInMemoryDatabase(databaseName: "UpdatesUser_ReturnUpdatedUser")
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
@@ -146,7 +146,7 @@ namespace FoodFood_XuNit
         {
             // Arrange
             var options = new DbContextOptionsBuilder<FoodFoodContext>()
-                .UseInMemoryDatabase(databaseName: "FoodFood")
+                .UseInMemoryDatabase(databaseName: "UpdatesUser_ReturnsNotFound")
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
@@ -155,7 +155,22 @@ namespace FoodFood_XuNit
                 var result = await controller.UpdateUser(1, new CreateUser { UserName = "test@gmail.com", Password = "password" }) as NotFoundResult;
 
                 Assert.Equal(404, result?.StatusCode);
+            }
+        }
+        [Fact]
+        public async Task GetUser_ReturnsNotFound()
+        {
+            // Arrange
+            var options = new DbContextOptionsBuilder<FoodFoodContext>()
+                .UseInMemoryDatabase(databaseName: "GetUser_ReturnsNotFound")
+                .Options;
+            using (var context = new FoodFoodContext(options))
+            {
+                var controller = new UserController(context);
 
+                var result = await controller.GetUser(1) as NotFoundResult;
+
+                Assert.Equal(404, result?.StatusCode);
             }
         }
     }

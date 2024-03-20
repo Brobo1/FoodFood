@@ -30,27 +30,27 @@ public class RestaurantController : ControllerBase {
 		return Ok(restaurant);
 	}
 
-	[HttpPost]
-	public async Task<ActionResult> CreateRestaurant(CreateRestaurant restaurant) {
-		Restaurant newRestaurant = new() {
-			Name        = restaurant.Name!,
-			Address     = restaurant.Description!,
-			Category    = restaurant.Category!,
-			Description = restaurant.Description!,
-			OpeningTime = restaurant.OpeningTime!,
-			ClosingTime = restaurant.ClosingTime!,
-			IsOpen      = restaurant.IsOpen,
-			Image       = restaurant.Image,
-		};
+    [HttpPost]
+    public async Task<ActionResult> CreateRestaurant(CreateRestaurant restaurant)
+    {
+        Restaurant newRestaurant = new()
+        {
+            Name = restaurant.Name!,
+            Address = restaurant.Address!,
+            Category = restaurant.Category!,
+            Description = restaurant.Description!,
+            OpeningTime = restaurant.OpeningTime!,
+            ClosingTime = restaurant.ClosingTime!,
+            IsOpen = restaurant.IsOpen,
+            Image = restaurant.Image,
+        };
 
+        _db.Restaurants.Add(newRestaurant);
+        await _db.SaveChangesAsync();
+        return CreatedAtRoute(new { id = newRestaurant.Id }, newRestaurant);
+    }
 
-
-		_db.Restaurants.Add(newRestaurant);
-		await _db.SaveChangesAsync();
-		return CreatedAtRoute(new { id = newRestaurant.Id }, restaurant);
-	}
-
-	[HttpPut("{id:int}")]
+    [HttpPut("{id:int}")]
 	public async Task<ActionResult> UpdateRestaurant(int id, CreateRestaurant restaurant) {
 		var restaurantToUpdate = await _db.Restaurants.FindAsync(id);
 		if (restaurantToUpdate == null) {
