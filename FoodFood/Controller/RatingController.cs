@@ -37,7 +37,7 @@ namespace FoodFood.Controller
         [HttpGet("restaurant/{id}")]
         public async Task<ActionResult> GetRatingsByRestaurant(int id)
         {
-            var ratings = await _db.Rating.Include(r => r.RestaurantRating).Where(r => r.RestaurantRating.Any(rr => rr.RestaurantId == id)).ToListAsync();
+            var ratings = await _db.Rating.Include(r => r.RestaurantRating).Where(r => r.RestaurantRating!.Any(rr => rr.RestaurantId == id)).ToListAsync();
             return Ok(ratings);
         }
         [HttpPost]

@@ -33,10 +33,10 @@ namespace FoodFood_XuNit
 
                 Assert.NotNull(result);
                 var restaurantRating = result.Value as RestaurantRating;
-                Assert.Equal(5, restaurantRating?.Rating.Stars);
+                Assert.Equal(5, restaurantRating?.Rating?.Stars);
                 Assert.NotNull(result2);
                 var restaurantRating2 = result2.Value as RestaurantRating;
-                Assert.Equal(4, restaurantRating2?.Rating.Stars);
+                Assert.Equal(4, restaurantRating2?.Rating?.Stars);
             }
         }
         [Fact]
@@ -76,7 +76,7 @@ namespace FoodFood_XuNit
 
                 Assert.NotNull(result);
                 var restaurantRatings = result.Value as List<RestaurantRating>;
-                Assert.Equal(2, restaurantRatings.Count);
+                Assert.Equal(2, restaurantRatings?.Count);
             }
         }
 

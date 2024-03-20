@@ -76,7 +76,7 @@ namespace FoodFood_XuNit
 
                 Assert.NotNull(result);
                 var payments = result.Value as List<Payment>;
-                Assert.Equal(2, payments.Count);
+                Assert.Equal(2, payments?.Count);
             }
         }
         [Fact]
