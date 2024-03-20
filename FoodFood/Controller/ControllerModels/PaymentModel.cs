@@ -7,10 +7,10 @@ namespace FoodFood.Controller.ControllerModels
         [Required]
         public string?  Type { get; set; }
         [Required]
-        public int  cardNumber { get; set; }
+        public int  CardNumber { get; set; }
         [Required]
-        public DateTime expirationDate { get; set; }
+        public DateTime ExpirationDate { get; set; }
         [Required]
-        public string? cardholderName { get; set; }
+        public string? CardHolderName { get; set; }
     }
 }

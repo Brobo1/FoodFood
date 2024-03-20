@@ -43,7 +43,12 @@ namespace FoodFood.Controller
         [HttpPost]
         public async Task<ActionResult> CreateRating(CreateRating rating)
         {
-            Rating newRating = new ()
+            if (rating == null)
+            {
+                return BadRequest("Invalid rating data");
+            }
+
+            Rating newRating = new Rating
             {
                 Review = rating.Review,
                 UserId = rating.UserId,
@@ -55,14 +60,15 @@ namespace FoodFood.Controller
 
             RestaurantRating restaurantRating = new RestaurantRating
             {
-                RatingId = newRating.Id, 
+                RatingId = newRating.Id,
                 RestaurantId = rating.RestaurantId
             };
             _db.RestaurantRatings.Add(restaurantRating);
             await _db.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetRating), new { id = newRating.Id}, newRating);
+            return CreatedAtAction(nameof(GetRating), new { id = newRating.Id }, newRating);
         }
+
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateRating(int id, CreateRating rating)
         {

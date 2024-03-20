@@ -17,6 +17,10 @@ namespace FoodFood.Controller
         public async  Task<ActionResult> Get(int id)
         {
             var ResturantRating = await _db.RestaurantRatings.FindAsync(id);
+            if (ResturantRating == null)
+            {
+                return NotFound();
+            }
             return Ok(ResturantRating);
         }
 

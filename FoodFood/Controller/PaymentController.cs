@@ -42,9 +42,9 @@ namespace FoodFood.Controller
             Payment payment = new Payment()
             {
                 Type = paymentPost.Type!,
-                CardNumber = paymentPost.cardNumber,
-                ExpirationDate = paymentPost.expirationDate,
-                CardHolderName = paymentPost.cardholderName!
+                CardNumber = paymentPost.CardNumber,
+                ExpirationDate = paymentPost.ExpirationDate,
+                CardHolderName = paymentPost.CardHolderName!
             };
             _db.Payment.Add(payment);
             await _db.SaveChangesAsync();
@@ -60,9 +60,9 @@ namespace FoodFood.Controller
                 return NotFound();
             }
             paymentToPut.Type = paymentPut.Type!;
-            paymentToPut.CardNumber = paymentPut.cardNumber;
-            paymentToPut.ExpirationDate = paymentPut.expirationDate;
-            paymentToPut.CardHolderName = paymentPut.cardholderName!;
+            paymentToPut.CardNumber = paymentPut.CardNumber;
+            paymentToPut.ExpirationDate = paymentPut.ExpirationDate;
+            paymentToPut.CardHolderName = paymentPut.CardHolderName!;
 
             await _db.SaveChangesAsync();
             return Ok(paymentToPut);
@@ -78,7 +78,7 @@ namespace FoodFood.Controller
             }
             _db.Payment.Remove(paymentToDelete);
             await _db.SaveChangesAsync();
-            return Ok();
+            return NoContent();
         }
     }
 }
