@@ -73,6 +73,7 @@ namespace FoodFood.Controller
             {
                 return NotFound();
             }
+            userToUpdate.UserName = user.UserName;
             userToUpdate.Password = PasswordHasher.HashPassword(user.Password + PasswordHasher.GenerateSalt());
             await _db.SaveChangesAsync();
             return NoContent();
