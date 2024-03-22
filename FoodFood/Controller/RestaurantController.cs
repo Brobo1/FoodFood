@@ -70,7 +70,7 @@ public class RestaurantController : ControllerBase {
 
 	[HttpDelete("{id:int}")]
 	public async Task<ActionResult> DeleteRestaurant(int id) {
-		var restaurant = await _db.Restaurants.FindAsync(id);
+		var restaurant = await _db.Restaurants.Include(r => r.Meals).Include(r => r.Favorite).Include(r => r.RestaurantRatings).FirstOrDefaultAsync(r => r.Id == id);
 		if (restaurant == null) {
 			return NotFound();
 		}
