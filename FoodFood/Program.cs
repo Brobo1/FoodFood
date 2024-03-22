@@ -18,7 +18,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
 builder.Services.AddDbContext<FoodFoodContext>(
-	c => c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+	//Use For LocalDB
+	c => c.UseSqlite(builder.Configuration.GetConnectionString("LocalConnection"))
+	
+	//Use For AzureDB
+	// c => c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+	);
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -37,4 +42,3 @@ app.UseCors(c => {
 app.MapControllers();
 
 app.Run();
-
