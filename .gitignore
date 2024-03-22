@@ -532,3 +532,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 
+!/FoodFood/FoodFoodDB.db
+
+!/FoodFood/FoodFoodDB.db-shm
+
+!/FoodFood/FoodFoodDB.db-wal
