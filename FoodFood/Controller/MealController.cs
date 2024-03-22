@@ -39,7 +39,8 @@ public class MealController : ControllerBase {
 			Category    = meal.Category,
 			MealImage   = meal.MealImage,
 			Allergens   = meal.Allergens,
-			RestaurantId = meal.RestaurantId
+			RestaurantId = meal.RestaurantId,
+			IsActive = meal.IsActive,
 		};
 		_db.Meal.Add(newMeal);
 		await _db.SaveChangesAsync();
@@ -59,6 +60,7 @@ public class MealController : ControllerBase {
 		mealToUpdate.MealImage   = meal.MealImage;
 		mealToUpdate.Allergens = meal.Allergens;
 		mealToUpdate.RestaurantId = meal.RestaurantId;
+		mealToUpdate.IsActive = meal.IsActive;
 		await _db.SaveChangesAsync();
 		return NoContent();
 	}
