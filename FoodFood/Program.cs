@@ -18,8 +18,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
 builder.Services.AddDbContext<FoodFoodContext>(
-	//Use For LocalDB
-	c => c.UseSqlite(builder.Configuration.GetConnectionString("LocalConnection"))
+	//Use For Local SQLiteDB
+	// c => c.UseSqlite(builder.Configuration.GetConnectionString("LocalConnection"))
+	
+	//Use For mssqllocaldb
+	c => c.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"))
 	
 	//Use For AzureDB
 	// c => c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))

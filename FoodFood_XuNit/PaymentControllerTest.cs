@@ -23,8 +23,8 @@ namespace FoodFood_XuNit
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
-                context.Payment.Add(new Payment { Id = 1, CardHolderName = "John Doe", CardNumber = 1234567890, ExpirationDate = DateTime.Now, Type = "Visa" });
-                context.Payment.Add(new Payment { Id = 2, CardHolderName = "Jane Doe", CardNumber = 0987654321, ExpirationDate = DateTime.Now, Type = "MasterCard" });
+                context.Payment.Add(new Payment { Id = 1, CardHolderName = "John Doe", CardNumber = "1234567890", ExpirationDate = DateTime.Now, Type = "Visa" });
+                context.Payment.Add(new Payment { Id = 2, CardHolderName = "Jane Doe", CardNumber = "0987654321", ExpirationDate = DateTime.Now, Type = "MasterCard" });
                 context.SaveChanges();
 
                 var controller = new PaymentController(context);
@@ -66,8 +66,8 @@ namespace FoodFood_XuNit
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
-                context.Payment.Add(new Payment { Id = 1, CardHolderName = "John Doe", CardNumber = 1234567890, ExpirationDate = DateTime.Now, Type = "Visa" });
-                context.Payment.Add(new Payment { Id = 2, CardHolderName = "Jane Doe", CardNumber = 0987654321, ExpirationDate = DateTime.Now, Type = "MasterCard" });
+                context.Payment.Add(new Payment { Id = 1, CardHolderName = "John Doe", CardNumber = "1234567890", ExpirationDate = DateTime.Now, Type = "Visa" });
+                context.Payment.Add(new Payment { Id = 2, CardHolderName = "Jane Doe", CardNumber = "0987654321", ExpirationDate = DateTime.Now, Type = "MasterCard" });
                 context.SaveChanges();
 
                 var controller = new PaymentController(context);
@@ -91,7 +91,7 @@ namespace FoodFood_XuNit
                 PaymentModel payment = new PaymentModel
                 {
                     CardHolderName = "John Doe",
-                    CardNumber = 1234567890,
+                    CardNumber = "1234567890",
                     ExpirationDate = DateTime.Now,
                     Type = "Visa"
                 };
@@ -118,12 +118,12 @@ namespace FoodFood_XuNit
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
-                context.Payment.Add(new Payment { Id = 1, CardHolderName = "John Doe", CardNumber = 1234567890, ExpirationDate = DateTime.Now, Type = "Visa" });
+                context.Payment.Add(new Payment { Id = 1, CardHolderName = "John Doe", CardNumber = "1234567890", ExpirationDate = DateTime.Now, Type = "Visa" });
                 context.SaveChanges();
 
                 var controller = new PaymentController(context);
 
-                var result = await controller.Update(1, new PaymentModel { CardHolderName = "Jane Doe", CardNumber = 0987654321, ExpirationDate = DateTime.Now, Type = "MasterCard" }) as OkObjectResult;
+                var result = await controller.Update(1, new PaymentModel { CardHolderName = "Jane Doe", CardNumber = "0987654321", ExpirationDate = DateTime.Now, Type = "MasterCard" }) as OkObjectResult;
 
                 Assert.NotNull(result);
                 var payment = result.Value as Payment;
@@ -141,7 +141,7 @@ namespace FoodFood_XuNit
             {
                 var controller = new PaymentController(context);
 
-                var result = await controller.Update(1, new PaymentModel { CardHolderName = "Jane Doe", CardNumber = 0987654321, ExpirationDate = DateTime.Now, Type = "MasterCard" }) as NotFoundResult;
+                var result = await controller.Update(1, new PaymentModel { CardHolderName = "Jane Doe", CardNumber = "0987654321", ExpirationDate = DateTime.Now, Type = "MasterCard" }) as NotFoundResult;
 
                 Assert.NotNull(result);
                 Assert.Equal(404, result.StatusCode);
@@ -156,7 +156,7 @@ namespace FoodFood_XuNit
                 .Options;
             using (var context = new FoodFoodContext(options))
             {
-                context.Payment.Add(new Payment { Id = 1, CardHolderName = "John Doe", CardNumber = 1234567890, ExpirationDate = DateTime.Now, Type = "Visa" });
+                context.Payment.Add(new Payment { Id = 1, CardHolderName = "John Doe", CardNumber = "1234567890", ExpirationDate = DateTime.Now, Type = "Visa" });
                 context.SaveChanges();
 
                 var controller = new PaymentController(context);

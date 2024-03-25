@@ -72,7 +72,7 @@ VALUES ('Sushi Platter', 'An assortment of fresh sushi.', 'Japanese', 'MealImage
        ('Green Tea Ice Cream', 'Refreshing green tea flavored ice cream.', 'Japanese', 'MealImage25', 4.99, 1, 5,
         'Dairy');
 
-INSERT INTO User (UserName, Password, Salt)
+INSERT INTO "User" (UserName, Password, Salt)
 VALUES ('JohnDoe', 'JDPassword123', 'Salt1'),
        ('JaneSmith', 'JSPassword456', 'Salt2'),
        ('AliceJohnson', 'AJPassword789', 'Salt3'),
