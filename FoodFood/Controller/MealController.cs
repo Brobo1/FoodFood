@@ -28,6 +28,15 @@ public class MealController : ControllerBase {
 			return NotFound();
 		}
 		return Ok(meal);
+	}	
+	
+	[HttpGet("mealRest/{id:int}")]
+	public async Task<ActionResult> GetMealByRestaurant(int id) {
+		var meal = await _db.Meal.Where(m => m.RestaurantId == id).ToListAsync();
+		if (meal.Count <= 0) {
+			return NotFound();
+		}
+		return Ok(meal);
 	}
 
 	[HttpPost]

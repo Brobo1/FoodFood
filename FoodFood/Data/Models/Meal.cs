@@ -15,7 +15,6 @@ namespace FoodFood.Data.Models {
 		public int                     RestaurantId { get; set; }
 		public string                  Allergens    { get; set; } = string.Empty;
 		public ICollection<MealOrder>? MealOrders   { get; set; }
-
-		public Restaurant? Restaurant { get; set; }
+		public Restaurant?             Restaurant   { get; set; }
 	}
 }
