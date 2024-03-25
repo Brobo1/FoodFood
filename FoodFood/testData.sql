@@ -1,14 +1,37 @@
-﻿INSERT INTO Restaurants (Name, Address, Category, Description, OpeningTime, ClosingTime, IsOpen, Image)
+﻿
+DELETE FROM MealOrder;
+DELETE FROM Payment;
+DELETE FROM Rating;
+DELETE FROM RestaurantRatings;
+DELETE FROM Favorite;
+DELETE FROM "Order";
+DELETE FROM Personalia;
+DELETE FROM Meal;
+DELETE FROM Restaurants;
+DELETE FROM "User";
+
+DBCC CHECKIDENT ('Meal', RESEED, 0);
+DBCC CHECKIDENT ('Restaurants', RESEED, 0);
+DBCC CHECKIDENT ('User', RESEED, 0);
+DBCC CHECKIDENT ('Order', RESEED, 0);
+DBCC CHECKIDENT ('MealOrder', RESEED, 0);
+DBCC CHECKIDENT ('Personalia', RESEED, 0);
+DBCC CHECKIDENT ('Payment', RESEED, 0);
+DBCC CHECKIDENT ('Rating', RESEED, 0);
+DBCC CHECKIDENT ('RestaurantRatings', RESEED, 0);
+DBCC CHECKIDENT ('Favorite', RESEED, 0);
+
+INSERT INTO Restaurants (Name, Address, Category, Description, OpeningTime, ClosingTime, IsOpen, Image)
 VALUES ('The Spicy Spoon', '123 Flavor Street, Tasty Town', 'Mexican', 'A vibrant spot for spicy Mexican dishes.',
-        '10:00', '22:00', 1, 'Image1'),
+        '10:00', '22:00', 1, 'https://www.lowcarb-nocarb.com/wp-content/uploads/2023/08/Taco-Seasoning-MSN.jpg'),
        ('Ocean Bites', '456 Sea Avenue, Fish City', 'Seafood', 'Fresh seafood served with a view.', '11:00', '23:00', 1,
-        'Image2'),
+        'https://www.mashed.com/img/gallery/national-seafood-chains-ranked-worst-to-best/l-intro-1610394684.jpg'),
        ('Burger Blitz', '789 Fast Lane, Burger Borough', 'Fast Food', 'Home of the juiciest burgers in town.', '09:00',
-        '21:00', 1, 'Image3'),
+        '21:00', 1, 'https://www.mrporter.com/cms/ycm/resource/blob/479990/c758e5463fcae5eaa16c00421f10d5ec/5617c0bf-1567-4fd0-bd40-8623a96d413b-data.jpg'),
        ('Pasta Paradise', '321 Noodle Road, Pasta Place', 'Italian', 'Authentic Italian pasta dishes.', '12:00',
-        '00:00', 1, 'Image4'),
+        '00:00', 1, 'https://www.mashed.com/img/gallery/italian-chain-restaurants-ranked-from-worst-to-best/l-intro-1618597744.jpg'),
        ('Sushi Symphony', '654 Rice Way, Sushi City', 'Japanese', 'Experience the harmony of flavors in our sushi.',
-        '13:00', '01:00', 1, 'Image5');
+        '13:00', '01:00', 1, 'https://images.lifestyleasia.com/wp-content/uploads/sites/6/2022/12/26162113/jakub-dziubak-unsplash-sushi-hi-resized-1600x900.jpeg');
 
 -- Meals for 'The Spicy Spoon' (Mexican)
 INSERT INTO Meal (Name, Description, Category, MealImage, Price, IsActive, RestaurantId, Allergens)
