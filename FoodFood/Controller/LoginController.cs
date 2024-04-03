@@ -27,8 +27,7 @@ namespace FoodFood.Controller
             //If login username and password are correct then proceed to generate token
 
             var user = _db.User.Where(u => u.UserName.ToLower() == loginRequest.Email.ToLower()).FirstOrDefault();
-
-            if (user is null) //Check if user with that email is found
+            if (user.UserName != loginRequest.Email) //Check if user with that email is found
             {
                 return Unauthorized();
             }
