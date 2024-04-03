@@ -38,7 +38,7 @@ namespace FoodFood.Controller
 
                 if (user.Password != hashedPassword)
                 {
-                    return Unauthorized();
+                    return NoContent();
                 }
             }
 
