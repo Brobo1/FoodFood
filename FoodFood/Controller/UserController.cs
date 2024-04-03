@@ -46,7 +46,8 @@ namespace FoodFood.Controller
             User newUser = new ()
             {
                 UserName = user.UserName,
-                Password = PasswordHasher.HashPassword(user.Password + PasswordHasher.GenerateSalt())
+                Password = PasswordHasher.HashPassword(user.Password + generatedSalt),
+                Salt = generatedSalt
             };
             _db.User.Add(newUser);
             await _db.SaveChangesAsync();
