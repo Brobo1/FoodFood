@@ -156,19 +156,8 @@ VALUES ('JohnDoe', 'JDPassword123', 'Salt1'),
        ('BobBrown', 'BBPassword321', 'Salt4'),
        ('CharlieGreen', 'CGPassword654', 'Salt5');
 
-INSERT INTO "Order" (OrderDate, IsDelivered, TotalPrice, UserId)
-VALUES ('2022-01-01', 1, 35.98, 1),
-       ('2022-01-02', 0, 24.99, 2),
-       ('2022-01-03', 1, 19.98, 3),
-       ('2022-01-04', 0, 12.99, 4),
-       ('2022-01-05', 1, 6.99, 5);
 
-INSERT INTO MealOrder (MealId, OrderId, Quantity)
-VALUES (1, 1, 2),
-       (2, 2, 3),
-       (3, 3, 1),
-       (4, 4, 2),
-       (5, 5, 1);
+
 
 INSERT INTO Personalia (FirstName, LastName, Birthday, Address, UserId)
 VALUES ('John', 'Doe', '1980-01-01', '123 Main Street, Anytown', 1),
